@@ -1,4 +1,11 @@
-FROM php:7.3.3-cli-alpine3.9
-COPY . /usr/src/hello-world
-WORKDIR /usr/src/hello-world
-CMD [ "php", "./index.php" ]
+FROM python:latest
+MAINTAINER Edmundo Andrade "edmon.af@gmail.com"
+
+COPY . /app
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+ENTRYPOINT ["python"]
+
+CMD ["app.py"]
